@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ReadText : MonoBehaviour
 {
+    [SerializeField] private GameObject[] brick;
     private void Start()
     {
         LoadText();
@@ -20,25 +21,35 @@ public class ReadText : MonoBehaviour
             {              
                 a[i,j] = temp[j];
                 Debug.Log(a[i, j]);
-                RendMap(a[i, j]);
+                RendMap(a[i, j],i,j);
             }
         }
 
     }
-    void RendMap(string a)
+    void RendMap(string a,float x, float z)
     {
         int b = int.Parse(a);
 
         switch (b)
         {
             case 0:
-                Debug.Log("gach khong di duoc");
+                Instantiate(brick[0], new Vector3(x, 0, z), Quaternion.identity);
+                Debug.Log("gach khong di duoc");             
                 break;
             case 1:
+                Instantiate(brick[1], new Vector3(x, 0, z), Quaternion.identity);
+                Debug.Log("gach di dc");
+                break;
+            case 2:
+                Instantiate(brick[2], new Vector3(x, 0, z), Quaternion.identity);
                 Debug.Log("gach di dc");
                 break;
             default:
                 break;
         }
     }
+    //void SpwanBrick(int typeBrick,float x,float z)
+    //{
+    //    Instantiate(brick[typeBrick], new Vector3(x, 0, z), Quaternion.identity);
+    //}
 }
