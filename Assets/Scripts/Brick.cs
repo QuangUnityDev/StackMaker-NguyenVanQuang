@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    enum typeBrick
+   public enum typeBrick
     {
-
-    }
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
+        brick1 = 0,
+        brick2 = 1,
+        brick3 = 2
     }
 }
