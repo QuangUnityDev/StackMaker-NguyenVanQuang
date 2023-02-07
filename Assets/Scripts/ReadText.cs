@@ -4,33 +4,32 @@ using UnityEngine;
 
 public class ReadText : MonoBehaviour
 {
-    [SerializeField] private GameObject[] brick;
+    public GameObject[] brick;
+    public string[,] a;
     enum typeBrick
     {
-        brick1 = 0,
-        brick2 = 1,
-        brick3 = 2
+        brick1,
+        brick2,
+        brick3,
+        brick4,
+        brick5
     }
-    private void Start()
+    private void Awake()
     {
         LoadText();
-        int b = (int)(typeBrick.brick1);
-     
-        Debug.Log(b);
-        
     }
     private void LoadText()
     {
         string data = Resources.Load<TextAsset>("Maps/Map1").text;
         //Tach mang thanh 
         string[] save = data.Split(new string[] {"\n" }, System.StringSplitOptions.None);       
-        string[,] a = new string[3, 4];
-        for (int i = 0; i < 3; i++)
+        a = new string[6, 5];
+        for (int i = 0; i < 6; i++)
         {
             // save[0] {0,1,0,0}
             //Debug.Log(save[0]);
             string[] temp = save[i].Split(",");         
-            for (int j = 0; j < 4; j++)
+            for (int j = 0; j < 5; j++)
             {       
                 // lay gia tri tung phan tu
                 a[i,j] = temp[j];
@@ -57,6 +56,15 @@ public class ReadText : MonoBehaviour
                 Instantiate(brick[2], new Vector3(x, 0, z), Quaternion.identity);
                 //Debug.Log("gach di dc");
                 break;
+            case (int)(typeBrick.brick4):
+                Instantiate(brick[3], new Vector3(x, 0, z), Quaternion.identity);
+                //Debug.Log("gach di dc");
+                break;
+            case (int)(typeBrick.brick5):
+                Instantiate(brick[4], new Vector3(x, 0, z), Quaternion.identity);
+                //Debug.Log("gach di dc");
+                break;
+
             default:
                 break;
         }
