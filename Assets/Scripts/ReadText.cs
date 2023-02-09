@@ -18,6 +18,20 @@ public class ReadText : MonoBehaviour
     {
         LoadText();
     }
+    //private void Update()
+    //{
+    //    for (int i = 0; i < 6; i++)
+    //    {
+    //        for (int j = 0; j < 5; j++)
+    //        {
+    //            if(a[i,j] =="5")
+    //            {
+    //                Instantiate(brick[5], new Vector3(i, 0, j), Quaternion.identity);
+                   
+    //            }
+    //        }
+    //    }
+    //}
     private void LoadText()
     {
         string data = Resources.Load<TextAsset>("Maps/Map1").text;
@@ -36,6 +50,7 @@ public class ReadText : MonoBehaviour
                 //Debug.Log(a[i, j]);
                 RendMap(a[i, j],i,j);
             }
+
         }
 
     }

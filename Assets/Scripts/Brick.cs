@@ -15,9 +15,10 @@ public class Brick : MonoBehaviour
     private void Update()
     {
         numberChild = player.transform.childCount;
-        Debug.Log(int.Parse(readText.a[x, y]));
+        //Debug.Log(int.Parse(readText.a[x, y]));
         //Debug.Log(player.transform.position);
-
+        
+     
         if (player.transform.position.x == transform.position.x && player.transform.position.z == transform.position.z)
             {
                 transform.SetParent(player.transform);
