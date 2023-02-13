@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if (GameManager.GetInstance().isGameStart != true) return;
         numberChild = transform.childCount;
         Debug.Log(numberChild);
         CheckWin();
